@@ -1,13 +1,7 @@
-(ns reverse-string
-  (require [clojure.string :as s])
-  )
+(ns reverse-string)
 
-(defn responds-to-something [s]
-  (cond
-    (s/blank? (s/trim s)) "Fine. Be that way!"
-    (s/ends-with? s "?") "Sure."
-    (= (s/upper-case s) s) "Whoa, chill out!"
-    :else "Whatever."
-    )
-  )
-
+(defn reverse-string [s]
+  (if (empty? s)
+    ""
+    (str (reverse-string (rest s)) (first s)))
+)
